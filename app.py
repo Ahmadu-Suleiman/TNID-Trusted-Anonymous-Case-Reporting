@@ -1,17 +1,20 @@
-import streamlit as st
-from tnid_api import verify_phone_number
-from db_config import add_report, get_reports
 import uuid
 from datetime import datetime
+
+import streamlit as st
+
+from db_config import add_report, get_reports
+from tnid_api import verify_phone_number
 
 # Define navigation state
 if 'view' not in st.session_state:
     st.session_state.view = 'home'
 
+
 # Helper function to navigate between screens
 def navigate_to(view_name):
     st.session_state.view = view_name
-    st.rerun()  # Refresh the app to load the new screen
+
 
 # Home Screen - Submit Report
 def home_screen():
@@ -35,13 +38,15 @@ def home_screen():
                 st.success("Phone number verified successfully. Your identity remains anonymous.")
                 user_id = str(uuid.uuid4())  # Create unique anonymous user ID
                 st.session_state['user_id'] = user_id  # Store user ID in session
+                st.session_state['verified'] = True # Store verified state
+
             else:
                 st.error("Verification failed. Please try a valid phone number.")
-
     # Report Submission Section
     if 'user_id' in st.session_state:
         st.header("Step 2: Submit an Anonymous Report")
-        category = st.selectbox("Choose a Report Category", ["Corruption", "Safety", "Crime", "Environmental Hazard", "Other"])
+        category = st.selectbox("Choose a Report Category",
+                                ["Corruption", "Safety", "Crime", "Environmental Hazard", "Other"])
         details = st.text_area("Describe the issue in detail")
 
         if st.button("Submit Report"):
@@ -52,6 +57,7 @@ def home_screen():
 
     # Button to navigate to all cases screen
     st.button("View All Uploaded Cases", on_click=lambda: navigate_to('all_cases'))
+
 
 # All Cases Screen
 def all_cases_screen():
@@ -71,6 +77,7 @@ def all_cases_screen():
 
     # Button to return to the home screen
     st.button("Return to Home", on_click=lambda: navigate_to('home'))
+
 
 # Main application logic
 if st.session_state.view == 'home':
