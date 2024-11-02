@@ -3,7 +3,7 @@ from tnid_api import verify_phone_number
 from db_config import add_report, get_reports
 import uuid
 
-st.title("SafeVoice - Anonymous Reporting Platform")
+st.title("Trusted Anonymous Reporting Platform")
 
 # Verification and Reporting Section
 st.subheader("Submit a Report")

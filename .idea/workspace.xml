@@ -47,6 +47,7 @@
     "Python.db_config.executor": "Run",
     "Python.gemini.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.tnid_api.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
