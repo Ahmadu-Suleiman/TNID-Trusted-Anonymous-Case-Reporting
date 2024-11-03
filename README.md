@@ -1,7 +1,7 @@
 # AnonymiTNID
 
 AnonymiTNID is a secure, anonymous reporting platform that enables community members to submit reports on local issues 
-or injustices. Using TNID (Telecom Network Identity) verification, the platform ensures each report is credible, 
+or injustices. Using TNID verification, the platform ensures each report is credible, 
 while preserving user anonymity.
 
 ## Features
