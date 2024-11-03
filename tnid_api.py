@@ -15,4 +15,4 @@ def verify_phone_number(phone_number):
     return True
 
 
-print(verify_phone_number('08138445664'))
+# print(verify_phone_number('08138445664'))
